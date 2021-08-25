@@ -1,9 +1,4 @@
-/application/node_modules
-/node_modules
-/public/javascripts/app.js
-/.idea
-npm-debug.log
-.env
-yarn.lock
-/_Vue1
+.idea
+*/.serverless
+*/node_modules
 
