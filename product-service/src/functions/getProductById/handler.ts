@@ -9,9 +9,13 @@ import {
 } from "@libs/errorResolver";
 import { getDataFromJsonFile } from "@libs/fileHelpers";
 
-const pathFile = "/../../data/products.json";
+let pathFile = "/../../data/products.json";
 
-const getProductById = async (event) => {
+if (process.env.NODE_ENV === "test") {
+  pathFile = "/../../src/data/products.json";
+}
+
+export const getProductById = async (event) => {
   try {
     const products = await getDataFromJsonFile(pathFile);
 

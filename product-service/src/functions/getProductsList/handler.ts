@@ -4,9 +4,13 @@ import { middyfy } from "@libs/lambda";
 import { sendError } from "@libs/errorResolver";
 import { getDataFromJsonFile } from "@libs/fileHelpers";
 
-const pathFile = "/../../data/products.json";
+let pathFile = "/../../data/products.json";
 
-const getProductsList = async () => {
+if (process.env.NODE_ENV === "test") {
+  pathFile = "/../../src/data/products.json";
+}
+
+export const getProductsList = async () => {
   try {
     const products = await getDataFromJsonFile(pathFile);
 
