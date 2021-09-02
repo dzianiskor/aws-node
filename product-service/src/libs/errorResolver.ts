@@ -26,3 +26,12 @@ export function ProductException(message) {
 ProductException.prototype.toString = function () {
   return `${this.name}: "${this.message}"`;
 };
+
+export function DBException(message) {
+  this.message = message;
+  this.name = "DBException";
+}
+
+DBException.prototype.toString = function () {
+  return `${this.name}: "${this.message}"`;
+};

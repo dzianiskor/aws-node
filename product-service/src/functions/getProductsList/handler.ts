@@ -2,17 +2,11 @@ import "source-map-support/register";
 import { formatJSONResponse } from "@libs/apiGateway";
 import { middyfy } from "@libs/lambda";
 import { sendError } from "@libs/errorResolver";
-import { getDataFromJsonFile } from "@libs/fileHelpers";
-
-let pathFile = "/../../data/products.json";
-
-if (process.env.NODE_ENV === "test") {
-  pathFile = "/../../src/data/products.json";
-}
+import { getProductsFromDB } from "@libs/dbHelper";
 
 export const getProductsList = async () => {
   try {
-    const products = await getDataFromJsonFile(pathFile);
+    const products = await getProductsFromDB();
 
     return formatJSONResponse({ products });
   } catch (e) {

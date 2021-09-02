@@ -1,6 +1,6 @@
 # Start in local machine
 - Run `sls invoke local -f getProductsList`
-- Run `sls invoke local -f getProductById --data '{ "pathParameters": {"id":"1"}}'`
+- Run `sls invoke local -f getProductById --data '{ "pathParameters": {"id":"1bb9c8c4-d6c3-4159-b847-ff0805a35b4b"}}'`
 
 # Deploy test
 - GET - https://t4alqialjk.execute-api.eu-west-1.amazonaws.com/dev/products
