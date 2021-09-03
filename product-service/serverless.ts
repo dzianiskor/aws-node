@@ -12,6 +12,7 @@ const serverlessConfiguration: AWS = {
     },
   },
   plugins: ["serverless-webpack"],
+  useDotenv: true,
   provider: {
     name: "aws",
     runtime: "nodejs14.x",
@@ -21,6 +22,11 @@ const serverlessConfiguration: AWS = {
     },
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: "1",
+      PG_HOST: "${env:PG_HOST}",
+      PG_DATABASE: "${env:PG_DATABASE}",
+      PG_PORT: "${env:PG_PORT}",
+      PG_USER: "${env:PG_USER}",
+      PG_PASSWORD: "${env:PG_PASSWORD}",
     },
     lambdaHashingVersion: "20201221",
     stage: "dev",
